@@ -14,7 +14,7 @@ A proposta é desenvolver uma visão de engenharia: entender o funcionamento do 
 * Lab 04 — Logical Plan
 * Lab 05 — Catalyst Optimizer
 * Lab 06 — Physical Plan
-* Lab 07 — Spark UI
+* Lab 07 — Query Profile e Observabilidade
 
 ### FASE 2 — Performance Engineering
 
