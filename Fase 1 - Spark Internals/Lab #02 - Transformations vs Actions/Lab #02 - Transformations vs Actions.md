@@ -1,24 +1,24 @@
 *Spark Engineering Lab #02 — Transformations vs Actions*
 
-# Categoria
+## Categoria
 
 Spark Internals
 
-# Objetivo
+## Objetivo
 
 Demonstrar a diferença entre Transformations e Actions no Spark e observar como diferentes Actions podem disparar execuções distintas sobre o mesmo conjunto de transformações.
 
-# Pergunta
+## Pergunta
 
 Qual é a diferença entre Transformations e Actions no Spark e como cada uma delas se relaciona com a execução?
 
-# Experimento
+## Experimento
 
 DataFrame → `filter()` → `select()` → `join()` → `count()` / `show()` / `saveAsTable()`
 
 Construir uma sequência de Transformations e, em seguida, executar diferentes Actions sobre o mesmo DataFrame resultante.
 
-# Dados
+## Dados
 
 Dados fictícios gerados com:
 
@@ -34,13 +34,13 @@ df_orders = spark.range(1_000_000)
 df_customers = spark.range(500000, 600000)
 ```
 
-# Transformações
+## Transformações
 
 Foram aplicadas operações como `filter()`, `select()` e `join()`.
 
 Essas operações definem o processamento que o Spark deverá realizar, mas não solicitam imediatamente um resultado.
 
-# Action
+## Action
 
 Foram utilizadas três Actions diferentes: `count()`, `show()` e operação de escrita com `saveAsTable()`.
 
@@ -48,7 +48,7 @@ Foram utilizadas três Actions diferentes: `count()`, `show()` e operação de e
 
 Observação da execução gerada por cada Action no ambiente do Databricks.
 
-# Código
+## Código
 
 ```python
 # Criação dos DataFrames
@@ -82,7 +82,7 @@ df_joined.write \
     .saveAsTable("lab02_transformations_actions")
 ```
 
-# Conclusão
+## Conclusão
 
 Transformations como `filter()`, `select()` e `join()` constroem o processamento que o Spark deverá executar, enquanto Actions como `count()`, `show()` e `saveAsTable()` solicitam efetivamente um resultado e, consequentemente, desencadeiam a execução.
 
