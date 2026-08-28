@@ -23,7 +23,7 @@ A proposta é desenvolver uma visão de engenharia: entender o funcionamento do 
 * Lab 10 — Repartition vs Coalesce
 * Lab 11 — Broadcast Join
 * Lab 12 — Data Skew
-* Lab 13 — Cache vs Persist
+* Lab 13 — Reutilização de resultados no Serverless
 * Lab 14 — AQE
 
 ### FASE 3 — Delta Lake
@@ -59,4 +59,5 @@ A proposta é desenvolver uma visão de engenharia: entender o funcionamento do 
 
 ## Ambiente
 
-Os laboratórios são desenvolvidos preferencialmente no Databricks, utilizando dados fictícios gerados diretamente com Spark.
+Os laboratórios são desenvolvidos no Databricks Free Edition com Serverless Compute, logo alguns experimentos podem ser adaptados às APIs, devido a limitações do ambiente serverless. 
+Os dados utilizados são fictícios gerados diretamente com Spark.
