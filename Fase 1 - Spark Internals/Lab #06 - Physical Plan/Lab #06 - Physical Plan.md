@@ -1,4 +1,4 @@
-## *Spark Engineering Lab ##06 — Physical Plan*
+## *Spark Engineering Lab #06 — Physical Plan*
 
 ## Categoria: Spark Internals
 
