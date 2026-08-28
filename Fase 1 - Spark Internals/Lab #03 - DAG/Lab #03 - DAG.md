@@ -1,6 +1,6 @@
 *Spark Engineering Lab #03 — DAG — Directed Acyclic Graph*
 
-# Categoria: Spark Internals
+## Categoria: Spark Internals
 
 # Objetivo
 Demonstrar como o Spark organiza as operações de uma consulta em uma DAG e observar as dependências entre os operadores após uma Action disparar a execução.
