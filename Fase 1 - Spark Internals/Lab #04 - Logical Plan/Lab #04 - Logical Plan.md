@@ -46,3 +46,25 @@ df_selected.explain(True)
 
 ## Conclusão
 Através da saída do `explain(True)`, podemos visualizar as diferentes etapas do planejamento, evidenciando que o código PySpark não é executado diretamente como foi escrito, mas sim transformado em uma representação que o Spark pode analisar, otimizar e executar.
+
+```text
+== Parsed Logical Plan ==
+'Project ['id]
++- 'Filter ('id > 500000)
+   +- Range (0, 1000000, step=1, splits=Some(8))
+
+== Analyzed Logical Plan ==
+id: bigint
+Project [id#11178L]
++- Filter (id#11178L > cast(500000 as bigint))
+   +- Range (0, 1000000, step=1, splits=Some(8))
+
+== Optimized Logical Plan ==
+Filter (id#11178L > 500000)
++- Range (0, 1000000, step=1, splits=Some(8))
+
+== Physical Plan ==
+PhotonResultStage
++- PhotonColumnarToRow
+   +- PhotonFilter (id#11178L > 500000)
+      +- PhotonRange Range (0, 1000000, step=1, splits=8)
