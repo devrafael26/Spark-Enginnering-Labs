@@ -1,24 +1,24 @@
 *Spark Engineering Lab #01 — Lazy Evaluation*
 
-# Categoria
+## Categoria
 
 Spark Internals
 
-# Objetivo
+## Objetivo
 
 Demonstrar na prática que as transformações no Spark são avaliadas de forma lazy e que o processamento dos dados ocorre somente quando uma Action é executada.
 
-# Pergunta
+## Pergunta
 
 O Spark processa os dados imediatamente quando aplicamos transformações como `filter()` e `select()`?
 
-# Experimento
+## Experimento
 
 DataFrame → `filter()` → `select()` → `show()`
 
 Observar o comportamento do Spark antes e depois da execução da Action.
 
-# Dados
+## Dados
 
 Dados fictícios gerados com:
 
@@ -26,20 +26,20 @@ Dados fictícios gerados com:
 spark.range(1_000_000)
 ```
 
-# Transformações
+## Transformações
 
 Aplicação das transformações:
 
 * `filter()` para selecionar registros com `id > 500000`;
 * `select()` para selecionar a coluna `id`.
 
-# Action
+## Action
 
 `show()`
 
 A Action dispara a execução do processamento necessário para produzir o resultado.
 
-# Comando de análise
+## Comando de análise
 
 `explain(True)`
 
