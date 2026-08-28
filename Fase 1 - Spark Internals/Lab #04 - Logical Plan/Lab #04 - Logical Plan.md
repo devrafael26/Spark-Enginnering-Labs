@@ -45,7 +45,7 @@ df_selected.explain(True)
 ```
 
 ## Conclusão
-Através da saída do `explain(True)`, podemos visualizar as diferentes etapas do planejamento, evidenciando que o código PySpark não é executado diretamente como foi escrito, mas sim transformado em uma representação que o Spark pode analisar, otimizar e executar.
+Através da saída do explain(True), podemos visualizar as diferentes etapas do planejamento, evidenciando que o código Spark não é executado diretamente como foi escrito, mas é transformado em uma representação que o Spark pode analisar e otimizar antes de definir como será executado.
 
 ```text
 == Parsed Logical Plan ==
