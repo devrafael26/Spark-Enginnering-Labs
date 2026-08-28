@@ -1,4 +1,4 @@
-*Spark Engineering Lab #05 — Catalyst Optimizer*
+## *Spark Engineering Lab #05 — Catalyst Optimizer*
 
 # Categoria: Spark Internals
 
