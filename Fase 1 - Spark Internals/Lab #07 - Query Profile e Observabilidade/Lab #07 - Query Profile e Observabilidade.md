@@ -1,4 +1,4 @@
-## *Spark Engineering Lab ##07 — Query Profile e Observabilidade*
+## *Spark Engineering Lab #07 — Query Profile e Observabilidade*
 
 ## Categoria: Spark Internals
 
