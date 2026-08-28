@@ -1,4 +1,4 @@
-## *Spark Engineering Lab ##04 — Logical Plan*
+## *Spark Engineering Lab #04 — Logical Plan*
 
 ## Categoria: Spark Internals
 
