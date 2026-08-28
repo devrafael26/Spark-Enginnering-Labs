@@ -1,4 +1,4 @@
-*Spark Engineering Lab #02 — Transformations vs Actions*
+## *Spark Engineering Lab #02 — Transformations vs Actions*
 
 ## Categoria
 
