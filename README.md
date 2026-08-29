@@ -61,3 +61,9 @@ A proposta é desenvolver uma visão de engenharia: entender o funcionamento do 
 
 Os laboratórios são desenvolvidos no Databricks Free Edition com Serverless Compute, logo alguns experimentos podem ser adaptados às APIs, devido a limitações do ambiente serverless. 
 Os dados utilizados são fictícios gerados diretamente com Spark.
+
+## Referências
+
+- *Learning Spark: Lightning-Fast Data Analytics* — 2ª edição, O'Reilly.
+- Documentação oficial do Apache Spark.
+- Documentação oficial do Databricks.
