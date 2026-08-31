@@ -84,6 +84,8 @@ Quando utilizamos `coalesce(4)`, o comportamento é diferente. No plano físico 
 
 Por não realizar Shuffle, `coalesce()` pode ter um custo menor quando o objetivo é apenas reduzir o número de partições. Porém, ele não tem como objetivo reequilibrar os dados entre as novas partições, podendo manter desequilíbrios já existentes. Já o `repartition()`, por realizar a redistribuição dos registros, tem um custo maior, mas permite uma nova distribuição dos dados entre as partições de destino.
 
+O `coalesce()` é utilizado para redução de partições. Caso seja solicitado um número maior que o número atual de partições, o DataFrame permanece com a quantidade atual, pois `coalesce()` não realiza o Shuffle para aumentar o particionamento.
+
 Dessa forma, a escolha entre as duas operações depende do objetivo: `coalesce()` é adequado quando queremos apenas reduzir a quantidade de partições aproveitando a estrutura existente, enquanto `repartition()` é utilizado quando precisamos aumentar partições ou quando queremos realizar uma nova redistribuição dos dados.
 
 ```text
@@ -202,7 +204,7 @@ Reference node:
 
 Segundo a documentação oficial do Databricks, `repartition()` pode receber apenas o número de partições ou também uma ou mais colunas. Quando colunas são informadas, elas participam da estratégia de particionamento e o DataFrame resultante é particionado por hash.
 
-O `coalesce()` é utilizado para redução de partições. Caso seja solicitado um número maior que o número atual de partições, o DataFrame permanece com a quantidade atual, pois `coalesce()` não realiza o Shuffle necessário para aumentar o particionamento.
+
 
 COALESCE
 * 8 → 4
