@@ -205,14 +205,14 @@ Segundo a documentação oficial do Databricks, `repartition()` pode receber ape
 O `coalesce()` é utilizado para redução de partições. Caso seja solicitado um número maior que o número atual de partições, o DataFrame permanece com a quantidade atual, pois `coalesce()` não realiza o Shuffle necessário para aumentar o particionamento.
 
 COALESCE
-8 → 4
-aproveita partições existentes
-não faz Shuffle completo
-mais barato
-não garante reequilíbrio
+* 8 → 4
+* aproveita partições existentes
+* não faz Shuffle completo
+* mais barato
+* não garante reequilíbrio
 
 REPARTITION
-8 → Shuffle → 4
-redistribui os registros
-mais caro
-pode produzir uma distribuição mais equilibrada
+* 8 → Shuffle → 4
+* redistribui os registros
+* mais caro
+* pode produzir uma distribuição mais equilibrada
