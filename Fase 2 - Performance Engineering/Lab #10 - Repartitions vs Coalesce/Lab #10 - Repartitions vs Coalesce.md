@@ -88,6 +88,8 @@ O `coalesce()` é utilizado para redução de partições. Caso seja solicitado 
 
 Dessa forma, a escolha entre as duas operações depende do objetivo: `coalesce()` é adequado quando queremos apenas reduzir a quantidade de partições aproveitando a estrutura existente, enquanto `repartition()` é utilizado quando precisamos aumentar partições ou quando queremos realizar uma nova redistribuição dos dados.
 
+#### Explains
+
 ```text
 == Parsed Logical Plan ==
 Repartition 16, true, false, 0, Unknown
