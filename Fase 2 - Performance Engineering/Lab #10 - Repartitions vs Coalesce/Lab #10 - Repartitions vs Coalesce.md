@@ -196,9 +196,7 @@ Photon does not fully support the query because:
 
 Reference node:
 	Coalesce 16
-
-
-
+```
 
 ### Observações adicionais
 
