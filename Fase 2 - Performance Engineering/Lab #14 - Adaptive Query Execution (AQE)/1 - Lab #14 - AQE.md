@@ -1,4 +1,4 @@
-## *Spark Engineering Lab ##14 — Adaptive Query Execution (AQE)*
+## *Spark Engineering Lab #14 — Adaptive Query Execution (AQE)*
 
 ## Categoria
 
