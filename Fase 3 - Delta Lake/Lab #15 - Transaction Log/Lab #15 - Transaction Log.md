@@ -649,27 +649,3 @@ O `DESCRIBE HISTORY` representa a forma mais direta de consultar o histórico de
   https://docs.databricks.com/gcp/en/tables/history-schema
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Observado no Experimento A: a tabela Delta foi criada como managed table e seu histórico pôde ser consultado normalmente por DESCRIBE HISTORY. A tentativa de acessar diretamente seu _delta_log não foi possível pelo caminho utilizado.
-
-Documentação: managed tables do Unity Catalog devem ser acessadas pelo identificador catalog.schema.table; o acesso baseado em path não é suportado. Além disso, DBFS root e mounts são recursos depreciados.
-
-Experimento B: foi criado um Unity Catalog Volume, que oferece acesso baseado em path. Dentro dele foram gravados dados no formato Delta, permitindo inspecionar diretamente o diretório _delta_log.
