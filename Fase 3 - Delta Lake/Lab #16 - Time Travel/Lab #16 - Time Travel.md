@@ -250,9 +250,7 @@ A Databricks possui mecanismos capazes de executar otimizações automaticamente
 
 https://docs.databricks.com/aws/en/optimizations/predictive-optimization
 
-## Time Travel 
-
-### Por versão
+## Time Travel por versão
 
 A consulta ao estado atual foi realizada com:
 
@@ -309,9 +307,7 @@ nova versão
 
 O número utilizado em `VERSION AS OF` corresponde a uma versão registrada no histórico da tabela.
 
-## Time Travel 
-
-### Por timestamp
+## Time Travel por timestamp
 
 Além do número da versão, o Delta Lake permite consultar a tabela pelo timestamp associado ao histórico.
 
