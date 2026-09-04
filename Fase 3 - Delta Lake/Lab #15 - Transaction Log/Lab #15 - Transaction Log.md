@@ -176,7 +176,7 @@ Os arquivos JSON representam commits/versões sucessivos do Transaction Log.
 
 Cada commit registra ações relacionadas àquela versão específica da tabela. O histórico completo é formado pela sequência dos commits, e não pela repetição de todo o histórico dentro do JSON mais recente.
 
-# Dados
+## Dados
 
 Os dados foram criados artificialmente utilizando `spark.range()`.
 
@@ -207,7 +207,7 @@ foi utilizada para gerar valores artificiais para `amount`.
 
 O uso do módulo não é uma exigência do `spark.range()`. Ele foi utilizado apenas como uma forma simples e previsível de gerar dados sintéticos para o laboratório.
 
-# Transformações
+## Transformações
 
 Durante a preparação dos dados foram realizadas:
 
@@ -222,7 +222,7 @@ Após a materialização em Delta, foram realizadas operações que modificaram 
 * `UPDATE`;
 * `DELETE`.
 
-## Operações executadas
+### Operações executadas
 
 Nesta fase, o campo `Action` utilizado nos laboratórios anteriores foi substituído por `Operações executadas`, pois os experimentos de Delta Lake envolvem operações de tabela e não apenas Actions de DataFrame.
 
