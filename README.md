@@ -33,7 +33,7 @@ A proposta é desenvolver uma visão de engenharia: entender o funcionamento do 
 * Lab 17 — Merge
 * Lab 18 — Vacuum
 * Lab 19 — Optimize
-* Lab 20 — ZORDER
+* Lab 20 — Data Layout: ZORDER vs Liquid Clustering
 
 ### FASE 4 — Benchmark & Tuning
 
