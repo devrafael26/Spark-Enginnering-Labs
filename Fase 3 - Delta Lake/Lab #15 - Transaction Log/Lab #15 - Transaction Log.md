@@ -1,22 +1,22 @@
-# Spark Engineering Lab #15 — Transaction Log
+## *Spark Engineering Lab 15 — Transaction Log*
 
-# Categoria
+## Categoria
 
 Delta Lake
 
-# Objetivo
+## Objetivo
 
 Entender como o Delta Lake registra as alterações realizadas em uma tabela através do Transaction Log e como essas alterações podem ser observadas pelo histórico da tabela e, quando há acesso baseado em path, pelos arquivos físicos armazenados no diretório `_delta_log`.
 
 O laboratório também busca diferenciar uma tabela Delta gerenciada pelo Unity Catalog de uma tabela Delta criada diretamente em um caminho dentro de um Volume.
 
-# Pergunta
+## Pergunta
 
 Como o Delta Lake registra as alterações realizadas em uma tabela e como podemos observar o histórico dessas operações?
 
-# Experimento
+## Experimento
 
-## Experimento A — Managed Table e `DESCRIBE HISTORY`
+### Experimento A — Managed Table e `DESCRIBE HISTORY`
 
 ```text
 DataFrame
@@ -47,9 +47,9 @@ Após cada alteração foi utilizado `DESCRIBE HISTORY` para observar as versõe
 
 ---
 
-## Experimento B — Inspeção física do Transaction Log
+### Experimento B — Inspeção física do Transaction Log
 
-### Parte 1 — Tentativa de acesso ao `_delta_log` da Managed Table
+#### Parte 1 — Tentativa de acesso ao `_delta_log` da Managed Table
 
 ```text
 Managed Delta Table
@@ -110,7 +110,7 @@ Portanto, o acesso físico ao `_delta_log` não representa a forma normal de int
 
 ---
 
-### Parte 2 — Delta Table baseada em path dentro de um Volume
+#### Parte 2 — Delta Table baseada em path dentro de um Volume
 
 Para permitir a inspeção física do Transaction Log foi criado um Volume no Unity Catalog.
 
@@ -222,7 +222,7 @@ Após a materialização em Delta, foram realizadas operações que modificaram 
 * `UPDATE`;
 * `DELETE`.
 
-# Operações executadas
+## Operações executadas
 
 Nesta fase, o campo `Action` utilizado nos laboratórios anteriores foi substituído por `Operações executadas`, pois os experimentos de Delta Lake envolvem operações de tabela e não apenas Actions de DataFrame.
 
@@ -237,9 +237,9 @@ DELETE
 
 Cada operação que modificou a tabela produziu uma nova versão no histórico Delta.
 
-# Comandos de análise
+## Comandos de análise
 
-## DESCRIBE HISTORY
+### DESCRIBE HISTORY
 
 Utilizado para observar o histórico de versões da tabela:
 
@@ -267,7 +267,7 @@ O `DESCRIBE HISTORY` apresenta informações como:
 
 ---
 
-## DESCRIBE DETAIL
+### DESCRIBE DETAIL
 
 Utilizado para observar os metadados da Managed Table:
 
@@ -279,7 +279,7 @@ Entre os metadados observados estavam formato, quantidade de arquivos, tamanho, 
 
 ---
 
-## dbutils.fs.ls()
+### dbutils.fs.ls()
 
 Utilizado para listar fisicamente o conteúdo do `_delta_log` da tabela Delta criada dentro do Volume:
 
@@ -298,9 +298,9 @@ modificationTime
 
 permitindo observar os arquivos físicos que compõem o Transaction Log.
 
-# Código
+## Código
 
-## Experimento A — Managed Table
+### Experimento A — Managed Table
 
 ```python
 from pyspark.sql import functions as F
@@ -330,7 +330,7 @@ df = (
 )
 ```
 
-### Histórico após a criação
+#### Histórico após a criação
 
 ```python
 display(
@@ -340,7 +340,7 @@ display(
 )
 ```
 
-### INSERT
+#### INSERT
 
 ```python
 spark.sql(f"""
@@ -352,7 +352,7 @@ spark.sql(f"""
 """)
 ```
 
-### UPDATE
+#### UPDATE
 
 ```python
 spark.sql(f"""
@@ -362,7 +362,7 @@ spark.sql(f"""
 """)
 ```
 
-### DELETE
+#### DELETE
 
 ```python
 spark.sql(f"""
@@ -371,7 +371,7 @@ spark.sql(f"""
 """)
 ```
 
-### Histórico final
+#### Histórico final
 
 ```python
 display(
@@ -381,7 +381,7 @@ display(
 )
 ```
 
-### Metadados da tabela
+#### Metadados da tabela
 
 ```python
 display(
@@ -391,7 +391,7 @@ display(
 )
 ```
 
-### Tentativa de obter a localização
+#### Tentativa de obter a localização
 
 ```python
 detail = spark.sql(f"""
@@ -403,7 +403,7 @@ location = detail.select("location").first()["location"]
 print(repr(location))
 ```
 
-### Tentativa de acesso direto ao `_delta_log`
+#### Tentativa de acesso direto ao `_delta_log`
 
 ```python
 display(
@@ -415,9 +415,9 @@ No ambiente utilizado, essa tentativa não permitiu acessar o Transaction Log f�
 
 ---
 
-## Experimento B — Delta Table em Volume
+### Experimento B — Delta Table em Volume
 
-### Criação do Volume
+#### Criação do Volume
 
 ```python
 spark.sql("""
@@ -426,7 +426,7 @@ spark.sql("""
 """)
 ```
 
-### Definição da path
+#### Definição da path
 
 ```python
 path = (
@@ -435,7 +435,7 @@ path = (
 )
 ```
 
-### Criação da Delta Table baseada em path
+#### Criação da Delta Table baseada em path
 
 ```python
 from pyspark.sql import functions as F
@@ -461,7 +461,7 @@ df = (
 )
 ```
 
-### INSERT
+#### INSERT
 
 ```python
 spark.sql(f"""
@@ -473,7 +473,7 @@ spark.sql(f"""
 """)
 ```
 
-### UPDATE
+#### UPDATE
 
 ```python
 spark.sql(f"""
@@ -483,7 +483,7 @@ spark.sql(f"""
 """)
 ```
 
-### DELETE
+#### DELETE
 
 ```python
 spark.sql(f"""
@@ -492,7 +492,7 @@ spark.sql(f"""
 """)
 ```
 
-### Histórico
+#### Histórico
 
 ```python
 display(
@@ -502,7 +502,7 @@ display(
 )
 ```
 
-### Inspeção do `_delta_log`
+#### Inspeção do `_delta_log`
 
 ```python
 display(
@@ -510,13 +510,13 @@ display(
 )
 ```
 
-# Observações
+## Observações
 
-## Managed Table x Delta Table baseada em path
+### Managed Table x Delta Table baseada em path
 
 O laboratório permitiu observar duas formas diferentes de trabalhar com Delta.
 
-### Managed Table
+#### Managed Table
 
 Criada utilizando:
 
@@ -538,7 +538,7 @@ Para tabelas gerenciadas pelo Unity Catalog, o próprio Unity Catalog administra
 
 ---
 
-### Delta Table baseada em path
+#### Delta Table baseada em path
 
 Criada utilizando:
 
@@ -558,7 +558,7 @@ O Volume utilizado no experimento é um objeto governado pelo Unity Catalog, mas
 
 ---
 
-## Unity Catalog
+### Unity Catalog
 
 O Unity Catalog funciona como a camada de governança e organização dos objetos.
 
@@ -580,7 +580,7 @@ O uso do Volume neste laboratório teve principalmente uma finalidade didática:
 
 ---
 
-## Transaction Log
+### Transaction Log
 
 O `_delta_log` é parte fundamental de uma Delta Table.
 
@@ -606,7 +606,7 @@ versão 3
 
 A partir dessa sequência, o Delta consegue determinar o estado da tabela em determinada versão.
 
-# Conclusão
+## Conclusão
 
 O laboratório demonstrou que alterações realizadas sobre uma tabela Delta são registradas como versões sucessivas no Transaction Log.
 
