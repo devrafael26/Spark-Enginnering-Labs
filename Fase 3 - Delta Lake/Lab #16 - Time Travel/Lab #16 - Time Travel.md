@@ -1,4 +1,4 @@
-## *Spark Engineering Lab #16 — Time Travel*
+## *Spark Engineering Lab 16 — Time Travel*
 
 ## Categoria
 
