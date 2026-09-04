@@ -480,10 +480,8 @@ display(
 )
 
 
-## ============================================================
-## Time Travel por timestamp
-## ============================================================
 
+## Time Travel por timestamp
 
 #### Consultar primeiro o DESCRIBE HISTORY e substituir
 #### o timestamp abaixo por um timestamp observado no histórico.
