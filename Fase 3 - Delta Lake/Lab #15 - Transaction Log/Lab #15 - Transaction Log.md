@@ -634,7 +634,7 @@ visão física dos commits
 
 O `DESCRIBE HISTORY` representa a forma mais direta de consultar o histórico de uma tabela durante o uso normal no Databricks, enquanto a inspeção do `_delta_log` permitiu entender de forma mais detalhada o mecanismo que sustenta esse versionamento.
 
-# Referências oficiais
+## Referências oficiais
 
 * Databricks — Managed Tables no Unity Catalog
   https://docs.databricks.com/aws/en/tables/managed
