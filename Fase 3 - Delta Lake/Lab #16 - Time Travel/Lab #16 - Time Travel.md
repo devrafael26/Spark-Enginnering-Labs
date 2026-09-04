@@ -446,18 +446,21 @@ display(
 ## Experimento C — Histórico e Time Travel
 ## ============================================================
 
-#### Histórico da tabela
+# Histórico da tabela
 display(
     spark.sql("""
         DESCRIBE HISTORY workspace.default.lab16_time_travel
     """)
 )
 
-
-#### Estado atual
+# Estado atual
 display(
-    spark.table("workspace.default.lab16_time_travel")
+    spark.sql("""
+        SELECT *
+        FROM workspace.default.lab16_time_travel
+    """)
 )
+
 
 
 ### Time Travel por versão
