@@ -488,12 +488,17 @@ display(
 #### Consultar primeiro o DESCRIBE HISTORY e substituir
 #### o timestamp abaixo por um timestamp observado no histórico.
 
+display(
+    spark.sql("""
+        DESCRIBE HISTORY workspace.default.lab16_time_travel
+    """)
+)
 
 display(
     spark.sql("""
         SELECT *
         FROM workspace.default.lab16_time_travel
-        TIMESTAMP AS OF '<timestamp>'
+        TIMESTAMP AS OF '2026-09-04T18:01:43'
     """)
 )
 ```
