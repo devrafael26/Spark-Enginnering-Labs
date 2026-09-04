@@ -483,8 +483,7 @@ display(
 
 ## Time Travel por timestamp
 
-#### Consultar primeiro o DESCRIBE HISTORY e substituir
-#### o timestamp abaixo por um timestamp observado no histórico.
+# Consultar primeiro o DESCRIBE HISTORY e substituir o timestamp abaixo por um timestamp observado no histórico.
 
 display(
     spark.sql("""
